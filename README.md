@@ -7,7 +7,7 @@ O objetivo e deixar a estrutura pronta para o backend implementar os endpoints e
 ## Arquivos
 
 - `schema.sql`: cria as tabelas `produtos` e `movimentacoes_estoque`.
-- `seed.sql`: cadastra o produto inicial da loja, que vende apenas uma camiseta.
+- `seed.sql`: cadastra a camiseta da loja e cria movimentacoes de exemplo.
 - `views.sql`: cria a view `vw_alertas_estoque` para produtos abaixo do estoque minimo.
 - `queries-backend.sql`: exemplos de queries para entrada, saida e inventario.
 - `contrato-backend.md`: explica como o backend deve mapear os campos do banco para o formato esperado pelo frontend.
@@ -24,17 +24,21 @@ Execute os arquivos nesta ordem no PostgreSQL/Supabase:
 
 No painel SQL do Supabase, cole e execute primeiro o conteudo de `schema.sql`, depois `seed.sql`, depois `views.sql`.
 
-## Produto inicial
+## Dados de exemplo
 
-O produto inicial cadastrado e:
+O seed cadastra uma loja que vende apenas uma camiseta e deixa um historico de movimentacoes pronto:
 
 ```text
 Nome: Camiseta ERP Universitario
 SKU: CAM-001
-Saldo inicial: 50
+Entrada inicial: 50
+Saidas simuladas: 12 + 30
+Saldo final: 8
 Estoque minimo: 10
 Unidade: un
 ```
+
+Como o saldo final fica abaixo do estoque minimo, a view `vw_alertas_estoque` tambem retorna um alerta de reposicao para a camiseta.
 
 ## Regras de integridade
 
