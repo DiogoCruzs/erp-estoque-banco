@@ -1,0 +1,2 @@
+{% extends 'base.html' %}{% block content %}<section class="auth-card"><div class="brand large"><span>SF</span><div>SERV FESTA<br><b>REGISSOL</b></div></div><p class="muted">Controle local de estoque, vendas e resultado.</p><form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><label>Usuário<input name="username" required autofocus></label><label>Senha<input type="password" name="password" required></label><button class="btn full">ENTRAR</button></form></section>{% endblock %}
+
